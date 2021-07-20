@@ -1,0 +1,37 @@
+2021-07-14, 10:58 pm Loging: txokoadmin - Nivel de acceso: Admin 
+-------
+2021-07-14, 11:00 Loging: ricardo - Nivel de acceso: User 
+-------
+2021-07-14, 23:02 Login: user2 - Nivel de acceso: User 
+-------
+2021-07-15, 01:08 Login: user2 - Nivel de acceso: User 
+-------
+2021-07-15, 01:12 Login: user2 - Nivel de acceso: User 
+-------
+User: 127.0.0.1 - July 15, 2021, 1:13 am
+Consulta SQL: select * from users where user='user3' and password = '00787666ba1cc85ca3e571fcf6b92c3ea8b3eeb6'
+-------------------------
+2021-07-15, 01:18 Login: user4 - Nivel de acceso: Admin 
+-------
+2021-07-15, 01:23 Login: user5 - Nivel de acceso: User 
+-------
+2021-07-18, 22:49 Login: txokoadmin - Nivel de acceso: Admin 
+-------
+2021-07-18, 22:53 Login: ricardo - Nivel de acceso: User 
+-------
+2021-07-18, 23:11 Login: ricardo - Nivel de acceso: User 
+-------
+2021-07-18, 23:38 Login: ricardo - Nivel de acceso: User 
+-------
+2021-07-18, 23:38 Login: ricardo - Nivel de acceso: User 
+-------
+2021-07-18, 23:55 Login: ricardo - Nivel de acceso: User 
+-------
+2021-07-18, 23:59 Login: ricardo - Nivel de acceso: User 
+-------
+2021-07-19, 00:02 Login: ricardo - Nivel de acceso: User 
+-------
+2021-07-19, 16:48 Login: txokoadmin - Nivel de acceso: Admin 
+-------
+2021-07-19, 16:52 Login: ricardo - Nivel de acceso: User 
+-------
