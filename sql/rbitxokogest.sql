@@ -16,3 +16,14 @@ CREATE TABLE 'users' (
   KEY 'fk_roles' ('role_id'),
   CONSTRAINT 'fk_roles' FOREIGN KEY ('role_id') REFERENCES 'roles' ('id')
 );
+CREATE TABLE `objects` (
+	`obj_id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`name` CHAR(50) NOT NULL,
+	`place` CHAR(50) NOT NULL,
+	`note` VARCHAR(255) NULL,
+	`kind` INT(3) UNSIGNED NOT NULL DEFAULT '1',
+	PRIMARY KEY (`obj_id`),
+	UNIQUE INDEX `name` (`name`)
+)
+COLLATE='utf8mb4_bin'
+;
