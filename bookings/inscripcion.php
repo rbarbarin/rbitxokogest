@@ -1,13 +1,19 @@
+<!-- 
+
+ASIR_18-19_IAW_UT06
+
+AUTOR: Ricardo Barbarin
+
+Archivo: incripcion.php
+
+Función del archivo:
+ 1. Formulario para incribir alumnos a la tabla baloncesto 
+
+-->
 <?php
+  if (!empty($_POST)){
   // iniciar sesión 
   session_start();
-  if ($_SESSION['role_id']!=2){
-    header('Location:index.php');
-  }
-  require("../connectdb.php");
-
-if (!empty($_POST)){
-
 
   // Pasamos las variabls del formulario al array de sesión.
   $codalumno = $_POST['codalumno'];
@@ -17,31 +23,34 @@ if (!empty($_POST)){
   $puesto = $_POST['puesto'];
   $clase = $_POST['clase'];
   
-  if (!$con){
+  //Variables para crear la conexión.
+  $host = "localhost";           
+  $user = "iawmodusr";
+  $pwd = "Asir1819";
+
+  //Creamos la conexión a la BD.
+  $enlace = mysqli_connect($host, $user, $pwd);           
+
+  if (!$enlace){
 	die("No se pudo realizar la conexión.</p>");           //Se produjo un error y se finaliza la ejecución del script.
 	}
 
   //Seleccionamos la BD.
-  mysqli_select_db($con, "rbitxgdb");     
+  mysqli_select_db($enlace, "baloncesto");     
   
-  // Insertar los datos en la tabla bookings
-  $query = "INSERT INTO bookings VALUES ('$codalumno','$nombre','$apellido','$tantos','$puesto','$clase')";
-  if(mysqli_query($con, $query)){
-    echo "Reserva realizada correctamente.";
+  // Insertar los datos en la tabla jugadores
+  $consulta = "INSERT INTO jugadores VALUES ('$codalumno','$nombre','$apellido','$tantos','$puesto','$clase')";
+  if(mysqli_query($enlace, $consulta)){
+    echo "Alumno añadido correctamente.";
 	
 } else{
-    echo "ERROR: No es posible ejecucion $sql. " . mysqli_error($con);
+    echo "ERROR: No es posible ejecucion $sql. " . mysqli_error($enlace);
 }
   // cerrar conexión 
-  mysqli_close($con); 
+  mysqli_close($enlace); 
   echo "<br/><input type='button' value='Atras' onClick='history.go(-1);'>";
  } // fin del if
  else{
-  //Seleccionamos la BD.
-  mysqli_select_db($con, "rbitxgdb");     
-  // Leer objetos a reservar
-  $query = "SELECT * FROM objects";
-  $result = (mysqli_query($con, $query))
 ?>
   <br />
   
@@ -50,10 +59,10 @@ if (!empty($_POST)){
   
 <html>
   <head>
-    <title>Formulario de reserva</title>
+    <title>Formulario Inscrici&oacuten de jugadores - IAW UT06 - RBarbarin</title>
   </head>
   <body>
-	<h2>Formulario de reserva</h2>
+	<h2>Formulario Inscrici&oacuten de jugadores - IAW UT06 - RBarbarin</h2>
 	<hr/>
 	<form method="POST" action="<?php $PHP_SELF ?>"> <!-- forma de indicar que la acción del formulario está en el propio fichero -->
 	  <p>C&oacutedigo: <input type="text" name="codalumno" placeholder="Codigo de alumno"/></p>
@@ -74,7 +83,7 @@ if (!empty($_POST)){
 					<option>E2B</option>
 				</select></p>
 	  
-	  <p><input type="submit" name="enviar" value="Reservar" /> <input type="reset" name="limpiar" value="Limpiar formulario"/></p>
+	  <p><input type="submit" name="enviar" value="Incribir alumno" /> <input type="reset" name="limpiar" value="Limpiar formulario"/></p>
 	</form>
 	<hr/>
     <p><input type='button' value='Atras' onClick='history.go(-1);'></p>

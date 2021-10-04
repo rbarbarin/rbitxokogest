@@ -50,7 +50,7 @@ if ($_SESSION['role_id']!=2){
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Reservas activas</a>
+            <a class="nav-link" href="bookings/listbooking.php">Reservas activas</a>
           </li>
           <!-- <li class="nav-item">
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -58,9 +58,9 @@ if ($_SESSION['role_id']!=2){
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">Reservas</a>
             <ul class="dropdown-menu" aria-labelledby="dropdown04">
-              <li><a class="dropdown-item" href="#">Hacer reserva</a></li>
-              <li><a class="dropdown-item" href="#">Modificar reserva</a></li>
-              <li><a class="dropdown-item" href="#">Eliminar reserva</a></li>
+              <li><a class="dropdown-item" href="bookings/newbooking.php">Hacer reserva</a></li>
+              <li><a class="dropdown-item" href="bookings/modifybooking.php">Modificar reserva</a></li>
+              <li><a class="dropdown-item" href="bookings/delbooking.php">Eliminar reserva</a></li>
             </ul>
           </li>
         </ul>
@@ -72,5 +72,7 @@ if ($_SESSION['role_id']!=2){
   </body>
 </html>
 <?php
+include ("bookings/listbooking.php");
+echo " <hr/>";
 include ("footer.php");
 ?>

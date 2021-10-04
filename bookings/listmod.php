@@ -1,34 +1,53 @@
-<?php
-require("../connectdb.php");
-      
+<!-- 
 
-  if (!$con){
+ASIR_18-19_IAW_UT06
+
+AUTOR: Ricardo Barbarin
+
+Archivo: listmod.php
+
+Función del archivo:
+ 1. Presenta un listado de alumnos por clase 
+ 2. Muestra un enlace para modificar el registro deseado
+
+-->
+<?php
+  //Variables para crear la conexión.
+  $host = "localhost";           
+  $user = "iawreadusr";
+  $pwd = "Asir1819";
+
+  //Creamos la conexión a la BD.
+  $enlace = mysqli_connect($host, $user, $pwd);           
+
+  if (!$enlace){
 	die("No se pudo realizar la conexión.</p>" . mysqli_connect_error());           //Se produjo un error y se finaliza la ejecución del script.
 	}
 
   //Seleccionamos la BD.
-  mysqli_select_db($con, "rbitxgdb");     
+  mysqli_select_db($enlace, "baloncesto");     
   
   // Sentencia SELECT
-  $consulta = "SELECT * FROM rbitxgdb order by fecha";
-  $result = mysqli_query($con, $consulta);
+  $consulta = "SELECT * FROM jugadores order by clase";
+  $result = mysqli_query($enlace, $consulta);
   
   // verificamos que no haya error 
   if (!$result){
-    echo "La consulta SQL contiene errores.".mysqli_error($con);
+    echo "La consulta SQL contiene errores.".mysqli_error($enlace);
     exit();
 } else {
-    echo "<h2>Listado de reservas</h2>
+    echo "<h2>Listado de alumnos para modificar - IAW UT06 - RBarbarin</h2>
 			<hr/>
 	
-	<table border='1' cellpadding='0' cellspacing='0' width='600' bgcolor='#F6F6F6' bordercolor='#FFFFFF'>  
+	<table border='1' cellpadding='2' cellspacing='2' width='600' bgcolor='#F6F6F6' bordercolor='#FFFFFF'>  
     <tr>  
       <td width='150' style='font-weight: bold'>CodAlumno</td>  
       <td width='150' style='font-weight: bold'>Nombre</td>  
       <td width='150' style='font-weight: bold'>Apellido</td>  
       <td width='150' style='font-weight: bold'>Tantos</td>
       <td width='150' style='font-weight: bold'>Puesto</td>
-      <td width='150' style='font-weight: bold'>Clase</td>	  
+      <td width='150' style='font-weight: bold'>Clase</td>	 
+	  <td width='150' style='font-weight: bold'>Modificar</td>
     </tr>";
 
     //obtenemos los datos resultado de la consulta 
@@ -40,6 +59,7 @@ require("../connectdb.php");
 			<td>".$row['tantos_marcados']."</td>
 			<td>".$row['puesto']."</td>
 			<td>".$row['clase']."</td>
+			<td><a href='modifica.php?codalumno=".$row['codalumno']."'>Modificar</td>
         </tr>";
     }
     echo "</table>";

@@ -45,3 +45,7 @@ Consulta SQL: select * from users where user='user3' and password = '00787666ba1
 -------
 2021-09-22, 21:37 Login: txokoadmin - Nivel de acceso: Admin 
 -------
+2021-09-27, 22:58 Login: ricardo - Nivel de acceso: User 
+-------
+2021-09-29, 22:42 Login: ricardo - Nivel de acceso: User 
+-------
