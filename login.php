@@ -23,12 +23,13 @@ $encontrados = mysqli_num_rows($query);
 if ($encontrados >= 1){
 	$_SESSION['name'] = $fila['name'];
 	$_SESSION['user'] = $fila['user'];
-	$_SESSION['role_id'] = $fila['role_id'];
-	if ($_SESSION['role_id']==1){
+	$_SESSION['rol_id'] = $fila['rol_id'];
+	$_SESSION['user_id'] = $fila['user_id'];
+	if ($_SESSION['rol_id']==1){
       file_put_contents('rbilog.log', date("Y-m-d, H:i")." Login: ".$_SESSION['user'].' - Nivel de acceso: Admin '.PHP_EOL."-------".PHP_EOL, FILE_APPEND);
 		header('Location:admin/rbiadmin.php');	
 	}
-	else if ($_SESSION['role_id']==2){
+	else if ($_SESSION['rol_id']==2){
       file_put_contents('rbilog.log', date("Y-m-d, H:i")." Login: ".$_SESSION['user'].' - Nivel de acceso: User '.PHP_EOL."-------".PHP_EOL, FILE_APPEND);
 		header('Location:rbiuser.php');	
 	}

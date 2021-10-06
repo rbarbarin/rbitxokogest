@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION['role_id']!=2){
+if ($_SESSION['rol_id']!=2){
   header('Location:index.php');
 }
 // echo "rbiuser.php";
@@ -64,15 +64,23 @@ if ($_SESSION['role_id']!=2){
             </ul>
           </li>
         </ul>
+        <p style="color:white">
+        <?php
+          echo "User: ".$_SESSION['user']." .";
+          echo "User ID: ".$_SESSION['user_id']." .";
+         ?>
+         </p>
         <a href="logout.php" class="btn btn-warning">Logout</a>
       </div>
     </div>
   </nav>
   <script src="js/bootstrap.bundle.min.js"></script>
+
+  
   </body>
 </html>
 <?php
 include ("bookings/listbooking.php");
-echo " <hr/>";
+echo " <br/>";
 include ("footer.php");
 ?>

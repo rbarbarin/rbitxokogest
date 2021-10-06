@@ -49,3 +49,11 @@ Consulta SQL: select * from users where user='user3' and password = '00787666ba1
 -------
 2021-09-29, 22:42 Login: ricardo - Nivel de acceso: User 
 -------
+2021-10-06, 23:17 Login: user1 - Nivel de acceso: User 
+-------
+2021-10-06, 23:18 Login: ricardo - Nivel de acceso: User 
+-------
+2021-10-06, 23:29 Login: user1 - Nivel de acceso: User 
+-------
+2021-10-06, 23:35 Login: ricardo - Nivel de acceso: User 
+-------
