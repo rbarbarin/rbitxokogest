@@ -47,7 +47,7 @@ if ($_SESSION['rol_id']!=2){
       <div class="collapse navbar-collapse" id="navbarsExample04">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="rbiuser.php">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="bookings/listbooking.php">Reservas activas</a>
@@ -80,7 +80,7 @@ if ($_SESSION['rol_id']!=2){
   </body>
 </html>
 <?php
-include ("bookings/listbooking.php");
+include ("bookings/listbooking_front.php");
 echo " <br/>";
 include ("footer.php");
 ?>

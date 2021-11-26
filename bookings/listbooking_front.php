@@ -1,10 +1,10 @@
 <?php
   // iniciar sesión 
-  session_start();
+  // session_start();
   if ($_SESSION['rol_id']!=2){
      header('Location:../index.php');
   }
-  require("../connectdb.php");
+  require("connectdb.php");
       
 
   if (!$con){

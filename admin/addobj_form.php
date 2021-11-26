@@ -1,16 +1,16 @@
 <h2>ADD OBJETO</h2>                 
           <form action="addobj.php" class="form-horizontal">
             <div class="form-group">  
-              <label for="name" class="sr-only">Nombre</label>
-              <input type="text" id="name" name="name" class="col-md-6" placeholder="Name">
+              <label for="obj_name" class="sr-only">Nombre</label>
+              <input type="text" id="obj_name" name="obj_name" class="col-md-6" placeholder="Name">
             </div>
             <div class="form-group">  
-              <label for="place" class="sr-only">Lugar</label>
-              <input type="text" id="place" name="place" class="col-md-6" placeholder="Place">
+              <label for="place_id" class="sr-only">Lugar</label>
+              <input type="text" id="place_id" name="place_id" class="col-md-6" placeholder="Place">
             </div>
             <div class="form-group">  
-              <label for="note" class="sr-only">Notas</label>
-              <input type="text" id="note" name="note" class="col-md-6" placeholder="Note">
+              <label for="obj_description" class="sr-only">Notas</label>
+              <input type="text" id="obj_description" name="obj_description" class="col-md-6" placeholder="Description">
             </div>
             <div class="form-group">  
               <label for="kind" class="sr-only">Tipo de reserva</label>

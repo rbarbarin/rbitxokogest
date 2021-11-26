@@ -1,0 +1,40 @@
+Deshabilitar checkbox
+<!DOCTYPE html>
+<html>
+<body>
+
+Checkbox: <input type="checkbox" id="myCheck">
+
+<p>Click the "Try it" button to disable the checkbox.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+  document.getElementById("myCheck").disabled = true;
+}
+</script>
+
+</body>
+</html>
+
+
+Ejemplo
+Deshabilitar y poco desactivar una casilla de verificación:
+
+function disable() {
+    document.getElementById("myCheck").disabled = true;
+}
+
+function undisable() {
+    document.getElementById("myCheck").disabled = false;
+}
+
+
+Revisar: https://getbootstrap.com/docs/4.5/components/forms/
+
+Use something like :
+
+<input type="checkbox" name="all_check[]" <?php if($row['id']==1) echo 'disabled checked="checked"';?> value="<?php echo $row['id']; ?>" class="checkbox" id="status" ></td>
+
+https://getbootstrap.com/docs/4.5/components/forms/
