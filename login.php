@@ -31,7 +31,7 @@ if ($encontrados >= 1){
 	}
 	else if ($_SESSION['rol_id']==2){
       file_put_contents('rbilog.log', date("Y-m-d, H:i")." Login: ".$_SESSION['user'].' - Nivel de acceso: User '.PHP_EOL."-------".PHP_EOL, FILE_APPEND);
-		header('Location:rbiuser.php');	
+		header('Location:index.php');	
 	}
 }
 else{

@@ -1,7 +1,10 @@
 <?php
-// require_once 'header.php';
-
-// echo "index.php";
+session_start();
+if ($_SESSION['rol_id']!=2){
+  header('Location:login-form.php');
+}
+// echo "rbiuser.php";
+// include ("header.php");
 ?>
 
 <html>
@@ -13,7 +16,7 @@
     <title>RBI-Txokogest v0.1 - Txokogalea</title>
 
     <!-- Bootstrap core CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -22,43 +25,62 @@
         -webkit-user-select: none;
         -moz-user-select: none;
         user-select: none;
-      }
-
+        }
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
+          }
         }
-      }
     </style>
-    
     <!-- Custom styles for this template -->
-    <link href="css/signin.css" rel="stylesheet">
+    <link href="css/navbar.css" rel="stylesheet">
   </head>
-  <body class="text-center">
-    
-    <main class="form-signin">
-      <form action="login.php" method="post">
-        <img class="mb-4" src="images/logo-txoko.jpg" alt="" width="259" height="200">
-        <h1 class="h3 mb-3 fw-normal">Acceso</h1>
+  <body>
+  
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">RBI - Txokogest</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <div class="form-floating">
-          <input type="text" class="form-control" id="floatingInput" placeholder="user" name="username">
-          <label for="floatingInput">User</label>
-        </div>
-        <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
-          <label for="floatingPassword">Password</label>
-        </div>
+      <div class="collapse navbar-collapse" id="navbarsExample04">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="rbiuser.php">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="bookings/listbooking.php">Reservas activas</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li> -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">Reservas</a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown04">
+              <li><a class="dropdown-item" href="bookings/newbooking.php">Hacer reserva</a></li>
+              <li><a class="dropdown-item" href="bookings/modifybooking.php">Modificar reserva</a></li>
+              <li><a class="dropdown-item" href="bookings/delbooking.php">Eliminar reserva</a></li>
+            </ul>
+          </li>
+        </ul>
+        <p style="color:white">
+        <?php
+          echo "User: ".$_SESSION['user']." .";
+          echo "User ID: ".$_SESSION['user_id']." .";
+         ?>
+         </p>
+        <a href="logout.php" class="btn btn-warning">Logout</a>
+      </div>
+    </div>
+  </nav>
+  <script src="js/bootstrap.bundle.min.js"></script>
 
-        <!-- <div class="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me"> Recordarme
-          </label>
-        </div> -->
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
-        <p class="mt-5 mb-3 text-muted">&copy; RBI - Txokogest 2021</p>
-      </form>
-    </main>
-
+  
   </body>
 </html>
+<?php
+include ("bookings/listbooking_front.php");
+echo " <br/>";
+include ("footer.php");
+?>
