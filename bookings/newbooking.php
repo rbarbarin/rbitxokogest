@@ -14,25 +14,16 @@ if (!empty($_POST)){
   $date2 = str_replace('-', '', $_POST['date']);
   // echo "New date format is: ".date_format($date2,"Ymd");
   settype($date2,"integer");
-
   $date = $_POST['date'];
   $user_id = $_SESSION['user_id'];
   settype($user_id,"integer");
   $turn_id = $_POST['turn_id'];
   settype($turn_id,"integer");
-  $obj_id = $_POST['obj_id'];
-  settype($obj_id,"integer");
-  $booking_reference = (int) $date2.sprintf("%03d", $user_id).sprintf("%02d", $turn_id).sprintf("%02d", $obj_id);
   $booking_note = $_POST['booking_note'];
-  
-  echo "Variable referencia: ".$booking_reference."";
+  // comprobación de valores
   echo "Variable date: ".$date."";
-
-
-
   echo "Variable user_id: ".$user_id."";
   echo "Variable turn_id: ".$turn_id."";
-  echo "Variable obj_id: ".$obj_id."";
   echo "Variable booking_note: ".$booking_note."";
 
   if (!$con){
@@ -41,15 +32,29 @@ if (!empty($_POST)){
 
   //Seleccionamos la BD.
   mysqli_select_db($con, "rbitxgdb");     
-  
-  // Insertar los datos en la tabla bookings
-  $query = "INSERT INTO bookings (booking_reference,date,user_id,turn_id,obj_id,booking_note) VALUES ('$booking_reference','$date','$user_id','$turn_id','$obj_id','$booking_note')";
-  if(mysqli_query($con, $query)){
-    echo "Reserva realizada correctamente.";
-	
-} else{
-    echo "ERROR: No es posible ejecucion sql. " . mysqli_error($con);
-}
+  // Insertar multiple check
+  // $checkbox = $_POST['obj_id']; // "casilla", no "check"
+  foreach($_POST['obj_id'] as $obj_id){
+    // echo $valor."<br>";
+    // for($i = 0; $i < count($_POST['obj_id']); $i++) {  
+        //$sql="INSERT INTO altasincompletasBackup (nombreCliente, zv, ramo, fechaEnvioCliente, diasPendCliente) VALUES ('".$checkbox[$i]. "')";  
+        //$resultado = $mysqli->query($sql); 
+
+      //$obj_id = $_POST['obj_id'];
+      settype($obj_id,"integer");
+      $booking_reference = (int) $date2.sprintf("%03d", $user_id).sprintf("%02d", $turn_id).sprintf("%02d", $obj_id);
+      echo "Variable obj_id: ".$obj_id."";
+      echo "Variable referencia: ".$booking_reference."";
+
+      // Insertar los datos en la tabla bookings
+      $query = "INSERT INTO bookings (booking_reference,date,user_id,turn_id,obj_id,booking_note) VALUES ('$booking_reference','$date','$user_id','$turn_id','$obj_id','$booking_note')";
+      if(mysqli_query($con, $query)){
+        echo "Reserva realizada correctamente.";
+        } 
+      else{
+        echo "ERROR: No es posible ejecucion sql. " . mysqli_error($con);
+        }
+      }
   // cerrar conexión 
   mysqli_close($con); 
   echo "<br/><input type='button' value='Atras' onClick='history.go(-1);'>";
@@ -130,7 +135,7 @@ if (!empty($_POST)){
         } else {
           while ($row = mysqli_fetch_assoc($result)){
           echo "<p>
-          <input class='form-check-input' type='checkbox' name='obj_id' id='obj_id' value='".$row['obj_id']."'>
+          <input class='form-check-input' type='checkbox' name='obj_id[]' id='obj_id' value='".$row['obj_id']."'>
 	        <label class='form-check-label' for='obj_id'> ".$row['obj_name']." --> ".$row['obj_description']." </label>
           </p>          
           ";
