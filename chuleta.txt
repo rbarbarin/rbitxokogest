@@ -38,3 +38,5 @@ Use something like :
 <input type="checkbox" name="all_check[]" <?php if($row['id']==1) echo 'disabled checked="checked"';?> value="<?php echo $row['id']; ?>" class="checkbox" id="status" ></td>
 
 https://getbootstrap.com/docs/4.5/components/forms/
+
+Probando git
