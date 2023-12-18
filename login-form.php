@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="RBI SysAdmin">
-    <title>RBI-Txokogest v0.1 - Txokogalea</title>
+    <title>RBI-Txokogest v0.1</title>
 
     <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">

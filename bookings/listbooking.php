@@ -15,7 +15,7 @@
   mysqli_select_db($con, "rbitxgdb");     
   
   // Sentencia SELECT
-  $consulta = "SELECT booking_reference,date,user_id,shift_id,obj_id,booking_note FROM bookings order by date";
+  $consulta = "SELECT booking_reference,date,user_id,shift_id,obj_id,booking_note FROM bookings where date >= curdate() order by date";
   $result = mysqli_query($con, $consulta);
   
   // verificamos que no haya error 
@@ -28,12 +28,12 @@
 	
 	<table border='1' cellpadding='0' cellspacing='0' width='600' bgcolor='#F6F6F6' bordercolor='#FFFFFF'>  
     <tr>  
-      <td width='150' style='font-weight: bold'>booking_reference</td>  
-      <td width='150' style='font-weight: bold'>date</td>  
-      <td width='150' style='font-weight: bold'>user_id</td>  
-      <td width='150' style='font-weight: bold'>shift_id</td>
-      <td width='150' style='font-weight: bold'>obj_id</td>
-      <td width='150' style='font-weight: bold'>booking_note</td>	  
+      <td width='150' style='font-weight: bold'>Referencia</td>  
+      <td width='150' style='font-weight: bold'>Fecha</td>  
+      <td width='150' style='font-weight: bold'>usuario</td>  
+      <td width='150' style='font-weight: bold'>Tipo</td>
+      <td width='150' style='font-weight: bold'>Objeto</td>
+      <td width='150' style='font-weight: bold'>Notas</td>	  
     </tr>";
 
     //obtenemos los datos resultado de la consulta 

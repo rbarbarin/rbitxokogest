@@ -15,7 +15,7 @@
   mysqli_select_db($con, "rbitxgdb");     
   
   // Sentencia SELECT
-  $consulta = "select bookings.date, turns.turn_name, users.user, objects.obj_name, bookings.booking_note from bookings inner join turns inner join users inner join objects where bookings.turn_id = turns.turn_id and bookings.user_id = users.user_id and bookings.obj_id =objects.obj_id order by bookings.date";
+  $consulta = "select bookings.date, turns.turn_name, users.user, objects.obj_name, bookings.booking_note from bookings inner join turns inner join users inner join objects where bookings.turn_id = turns.turn_id and bookings.user_id = users.user_id and bookings.obj_id =objects.obj_id and bookings.date >= date order by bookings.date";
   // $consulta = "SELECT booking_reference,date,user_id,turn_id,obj_id,booking_note FROM bookings order by date";
   $result = mysqli_query($con, $consulta);
   
